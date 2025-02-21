@@ -38,3 +38,8 @@ Follow these steps to set up the project locally:
 git clone https://github.com/maryashouri/ssr-vite-react
 cd hotels
 ```
+
+### 2. Install dependencies
+ ```bash
+npm install
+```
