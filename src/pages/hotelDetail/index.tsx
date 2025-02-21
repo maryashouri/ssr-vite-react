@@ -25,6 +25,8 @@ export const HotelDetailPage = () => {
             <img
               alt={data?.name}
               src={`https://placehold.co/800x200?text=Hotel`}
+              width={"800"}
+              height={"200"}
             />
           ) : (
             <img alt={data.name} src={`/images/${data.image}`} />

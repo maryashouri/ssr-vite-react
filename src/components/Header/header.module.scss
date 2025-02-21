@@ -1,19 +1,27 @@
 .headerNavigation {
   padding: 16px;
   font-size: 18px;
-
   display: flex;
   z-index: 40;
   background-color: #fff;
   font-weight: 500;
   min-height: 60px;
   align-items: center;
-
   justify-content: space-between;
 
   .menu {
     display: flex;
     gap: 32px;
+    min-width: 250px;
+    justify-content: flex-start;
+    transition: min-width 0.3s ease;
+    a {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 48px; /* Ensure consistent height for the links */
+      color: #000;
+      text-decoration: none;
+    }
   }
 }
 
@@ -21,4 +29,6 @@
   width: 168px;
   height: 48px;
   margin-right: 1rem;
+  aspect-ratio: 168 / 48;
+  object-fit: contain;
 }

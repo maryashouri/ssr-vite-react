@@ -16,7 +16,13 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotel }) => {
             src={`https://placehold.co/800x200?text=Hotel`}
           />
         ) : (
-          <img alt={hotel.name} src={`/images/${hotel.image}`} loading="lazy" />
+          <img
+            alt={hotel.name}
+            src={`/images/${hotel.image}`}
+            loading="lazy"
+            width={"800"}
+            height={"200"}
+          />
         )}
       </div>
       <div className={styles.cardContent}>

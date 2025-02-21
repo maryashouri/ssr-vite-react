@@ -59,7 +59,7 @@ export const HotelListPage = () => {
         <HotelMap hotels={filtered} isLoading={isLoading} />
       </div>
 
-      <div className={styles.moreButton}>
+      <div className={`${styles.moreButton} ${hasMore ? "visible" : ""}`}>
         {hasMore && (
           <button onClick={loadMoreHotels} className={styles.loadMoreButton}>
             Load More
