@@ -88,6 +88,114 @@
       "stars": 4,
       "image": "Amir.webp",
       "comments": []
+    },
+    {
+      "id": 6,
+      "name": "Evin",
+      "description": "Tehran Evin Hotel, one of the most prestigious five-star hotels in the capital.",
+      "location": { "lat": 35.68, "long": 51.374 },
+      "stars": 5,
+      "image": "Evin.webp",
+      "comments": [
+        {
+          "user": "Mary Doe",
+          "text": "Amazing hotel!."
+        },
+        {
+          "user": "Jane Smith",
+          "text": "The view from the room was spectacular. I highly recommend staying here."
+        },
+        {
+          "user": "Ali Reza",
+          "text": "One of the best hotels I've stayed at in Tehran. Worth the price."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Espinas",
+      "description": "A luxurious five-star hotel offering panoramic views of Tehran.",
+      "location": { "lat": 35.712, "long": 51.392 },
+      "stars": 2,
+      "image": "Espinas.webp",
+      "comments": [
+        {
+          "user": "Sara Ali",
+          "text": "Absolutely stunning views from the top floors."
+        },
+        {
+          "user": "Omar Khayyam",
+          "text": "Great service and comfortable rooms. Highly recommended."
+        },
+        {
+          "user": "Fatima Zahra",
+          "text": "The food at the hotel restaurant was delicious. A five-star experience!"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Parsian Azadi2",
+      "description": "A top-class hotel with exceptional service and amenities.",
+      "location": { "lat": 35.8016, "long": 51.391 },
+      "stars": 5,
+      "image": "",
+      "comments": [
+        {
+          "user": "Tina",
+          "text": "Fantastic hotel with superb amenities. I felt like royalty."
+        },
+        {
+          "user": "Maryam Abbassian",
+          "text": "The location is great, and the service was impeccable. I'll definitely return."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Ferdowsi International Grand Hotel",
+      "description": "An elegant hotel in the heart of Tehran with easy access to tourist attractions.",
+      "location": { "lat": 35.7003, "long": 51.414 },
+      "stars": 4,
+      "image": "Ferdosi.webp",
+      "comments": [
+        {
+          "user": "Reza Shah",
+          "text": "Good location, and the rooms are spacious and comfortable."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Parvaz Hotel",
+      "description": "A normal hotel.",
+      "location": { "lat": 35.7003, "long": 51.414 },
+      "stars": 1,
+      "image": "",
+      "comments": []
+    },
+    {
+      "id": 9,
+      "name": "Ferdowsi  Grand Hotel",
+      "description": "An elegant hotel in the heart of Tehran with easy access to tourist attractions.",
+      "location": { "lat": 35.7003, "long": 51.32 },
+      "stars": 4,
+      "image": "Ferdosi.webp",
+      "comments": [
+        {
+          "user": "Reza Shah",
+          "text": "Good location, and the rooms are spacious and comfortable."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Testttt",
+      "description": "A normal hotel.",
+      "location": { "lat": 35.7003, "long": 51.414 },
+      "stars": 1,
+      "image": "",
+      "comments": []
     }
   ]
 }

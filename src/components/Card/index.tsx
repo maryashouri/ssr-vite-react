@@ -10,7 +10,14 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotel }) => {
   return (
     <div className={styles.card}>
       <div className={styles.cardImage}>
-        <img alt={hotel.name} src={`/images/${hotel.image}`} loading="lazy" />
+        {!hotel.image ? (
+          <img
+            alt={hotel.name}
+            src={`https://placehold.co/800x200?text=Hotel`}
+          />
+        ) : (
+          <img alt={hotel.name} src={`/images/${hotel.image}`} loading="lazy" />
+        )}
       </div>
       <div className={styles.cardContent}>
         <h3>{hotel.name}</h3>

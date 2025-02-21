@@ -7,15 +7,16 @@ import {
   dehydrate,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import { fetchHotelDetail, fetchHotels } from "./hooks/useHotels";
+import { fetchHotelDetail, fetchHotels } from "./api/hotelApi";
 
 export async function render({ path }: { path: string }) {
   const queryClient = new QueryClient();
+  const currentPage = 1;
 
   // Prefetch hotels data before rendering
   await queryClient.prefetchQuery({
-    queryKey: ["hotels"],
-    queryFn: fetchHotels,
+    queryKey: ["hotels", currentPage],
+    queryFn: () => fetchHotels(currentPage),
   });
 
   // Extract hotel ID from the URL

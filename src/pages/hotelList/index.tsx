@@ -1,21 +1,14 @@
 import Layout from "../../layout/index";
-import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { HotelMap } from "../../components/Map";
-import { fetchHotels } from "../../hooks/useHotels";
 import { HotelDataType } from "../../types";
 import HotelCard from "../../components/Card";
 import styles from "./hotelList.module.scss";
+import { useInfiniteHotels } from "../../hooks/useInfiniteHotels";
 
 export const HotelListPage = () => {
-  const {
-    data: hotels,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["hotels"],
-    queryFn: fetchHotels,
-  });
+  const { hotels, isLoading, error, loadMoreHotels, hasMore } =
+    useInfiniteHotels();
 
   const [search, setSearch] = useState("");
 
@@ -52,8 +45,16 @@ export const HotelListPage = () => {
           </ul>
         </div>
         <div className={styles.mapContainer}>
-          <HotelMap />
+          <HotelMap hotels={hotels} isLoading={isLoading} />
         </div>
+      </div>
+
+      <div className={styles.moreButton}>
+        {hasMore && (
+          <button onClick={loadMoreHotels} className={styles.loadMoreButton}>
+            Load More
+          </button>
+        )}
       </div>
     </Layout>
   );

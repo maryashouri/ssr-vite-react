@@ -1,26 +1,28 @@
 import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
-import { useHotels } from "../../hooks/useHotels";
-import type { HotelDetail } from "../../types";
+import type { HotelDetail, HotelList } from "../../types";
 
-export const HotelMap = () => {
+interface HotelMapProps {
+  hotels: HotelList;
+  isLoading: boolean;
+}
+
+export const HotelMap = ({ hotels, isLoading }: HotelMapProps) => {
   const [leafletModule, setLeafletModule] = useState<any>(null);
   const [isBrowser, setIsBrowser] = useState(false);
 
-  const { data: hotels, isLoading, error } = useHotels();
-
   if (isLoading) return <p>Loading map...</p>;
-  if (error) return <p>Failed to load hotels.</p>;
+
   useEffect(() => {
     setIsBrowser(true);
 
     import("react-leaflet")
       .then((module) => {
-        console.log("Leaflet module loaded", module); // Add this line for debugging
+        console.log("Leaflet module loaded", module);
         setLeafletModule(module);
       })
       .catch((error) => {
-        console.error("Error loading Leaflet module:", error); // Log any import errors
+        console.error("Error loading Leaflet module:", error);
       });
   }, []);
 

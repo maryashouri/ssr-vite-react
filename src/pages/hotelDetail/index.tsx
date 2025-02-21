@@ -1,5 +1,5 @@
 import { HotelDetail } from "../../types/index";
-import { fetchHotelDetail } from "../../hooks/useHotels";
+import { fetchHotelDetail } from "../../api/hotelApi";
 import Layout from "../../layout";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
