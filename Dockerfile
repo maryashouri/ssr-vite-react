@@ -7,7 +7,7 @@ WORKDIR /HOTELS
 # Step 3: Copy package.json and package-lock.json (or yarn.lock) to install dependencies
 COPY package*.json ./
 
-# Step 4: Install dependencies
+# Step 4: Install both dependencies and devDependencies
 RUN npm install
 
 # Step 5: Copy the entire source code to the container
@@ -34,12 +34,12 @@ COPY --from=build /HOTELS/server.js /HOTELS/db.json /HOTELS/
 # Step 12: Copy the .env file into the container
 COPY .env .env
 
-# Step 13: Install production dependencies only (if any)
+# Step 13: Install both dependencies and devDependencies (remove --production flag)
 COPY package*.json ./
-RUN npm install --production
+RUN npm install
 
 # Step 14: Expose the port your application will run on (port 5000)
 EXPOSE 5000
 
-# Step 15: Set the entry point to start the development server
+# Step 15: Set the entry point to start the development server (or production server if needed)
 CMD ["npm", "run", "dev"]
