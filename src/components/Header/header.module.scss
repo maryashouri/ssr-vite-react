@@ -1,0 +1,24 @@
+.headerNavigation {
+  padding: 16px;
+  font-size: 18px;
+
+  display: flex;
+  z-index: 40;
+  background-color: #fff;
+  font-weight: 500;
+  min-height: 60px;
+  align-items: center;
+
+  justify-content: space-between;
+
+  .menu {
+    display: flex;
+    gap: 32px;
+  }
+}
+
+.logo {
+  width: 168px;
+  height: 48px;
+  margin-right: 1rem;
+}

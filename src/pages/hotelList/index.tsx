@@ -4,6 +4,8 @@ import { useState } from "react";
 import { HotelMap } from "../../components/Map";
 import { fetchHotels } from "../../hooks/useHotels";
 import { HotelDataType } from "../../types";
+import HotelCard from "../../components/Card";
+import styles from "./hotelList.module.scss";
 
 export const HotelListPage = () => {
   const {
@@ -28,23 +30,31 @@ export const HotelListPage = () => {
 
   return (
     <Layout>
-      <h3>Hotel List</h3>
-      <input
-        type="text"
-        placeholder="Search hotels..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <HotelMap />
-      <ul>
-        {filteredHotels?.map((hotel: HotelDataType) => (
-          <li key={hotel.id}>
-            <h3>{hotel.name}</h3>
-            <p>{hotel.description}</p>
-            <a href={`/hotel/${hotel.id}`}>View Details</a>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.backgroundImageContainer} />
+      <div className={styles.searchBoxContainer}>
+        <div>
+          <h1>Hotel List</h1>
+          <input
+            className={styles.searchBox}
+            type="text"
+            placeholder="Search hotels..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+      </div>
+      <div className={styles.gridLayout}>
+        <div className={styles.cardContainer}>
+          <ul>
+            {filteredHotels?.map((hotel: HotelDataType) => (
+              <HotelCard key={hotel.id} hotel={hotel} />
+            ))}
+          </ul>
+        </div>
+        <div className={styles.mapContainer}>
+          <HotelMap />
+        </div>
+      </div>
     </Layout>
   );
 };

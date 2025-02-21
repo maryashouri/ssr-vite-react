@@ -1,6 +1,7 @@
+import { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import { useHotels } from "../../hooks/useHotels";
-import { useState, useEffect } from "react";
+import type { HotelDetail } from "../../types";
 
 export const HotelMap = () => {
   const [leafletModule, setLeafletModule] = useState<any>(null);
@@ -28,15 +29,20 @@ export const HotelMap = () => {
   }
 
   const { MapContainer, TileLayer, Marker, Popup } = leafletModule;
+  const bounds = [
+    [35.5, 51.3], // Southwest corner of Tehran
+    [35.9, 51.6], // Northeast corner of Tehran
+  ];
 
   return (
     <MapContainer
       center={[35.6892, 51.389]}
-      zoom={12}
+      zoom={10}
       style={{ height: "400px", width: "100%" }}
+      maxBounds={bounds}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {hotels.map((hotel: any) => (
+      {hotels?.map((hotel: HotelDetail) => (
         <Marker
           key={hotel.id}
           position={[hotel.location.lat, hotel.location.long]}
@@ -44,7 +50,7 @@ export const HotelMap = () => {
           <Popup>
             <h3>{hotel.name}</h3>
             <p>{hotel.description}</p>
-            <a href={`/hotel/${hotel.id}`}>View Details</a>
+            <a href={`/hotels/${hotel.id}`}>View Details</a>
           </Popup>
         </Marker>
       ))}

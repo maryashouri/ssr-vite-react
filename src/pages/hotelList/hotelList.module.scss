@@ -1,0 +1,93 @@
+// HotelListPage.module.scss
+
+.searchBoxContainer {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+
+  div {
+    text-align: center;
+    padding: 16px 24px 8px;
+    margin-top: -100px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .searchBoxContainer div {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 360px) {
+  .searchBoxContainer {
+    max-width: none;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.searchBox {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+
+  &::placeholder {
+    color: #bfbfbf;
+  }
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 16px;
+  margin-top: 64px;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mapContainer {
+  height: 400px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backgroundImageContainer {
+  height: 280px;
+  background-image: url("/bg.jpg");
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-size: cover;
+}

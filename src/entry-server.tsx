@@ -19,7 +19,7 @@ export async function render({ path }: { path: string }) {
   });
 
   // Extract hotel ID from the URL
-  const hotelIdMatch = path.match(/\/hotel\/(\d+)/);
+  const hotelIdMatch = path.match(/\/hotels\/(\d+)/);
   const hotelId = hotelIdMatch ? parseInt(hotelIdMatch[1], 10) : null;
 
   if (hotelId) {
