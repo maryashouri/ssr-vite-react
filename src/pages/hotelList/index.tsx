@@ -54,9 +54,9 @@ export const HotelListPage = () => {
             <HotelCard hotel={item} key={index} />
           ))}
         </div>
-        <div className={styles.mapContainer}>
-          <HotelMap hotels={filtered} isLoading={isLoading} />
-        </div>
+      </div>
+      <div className={styles.mapContainer}>
+        <HotelMap hotels={filtered} isLoading={isLoading} />
       </div>
 
       <div className={styles.moreButton}>

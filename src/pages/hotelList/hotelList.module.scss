@@ -58,10 +58,9 @@
 }
 
 .gridLayout {
-  display: grid;
-  grid-template-columns: 60% 40%;
+  max-width: 800px;
+  margin: 32px auto;
   gap: 16px;
-  margin-top: 64px;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }

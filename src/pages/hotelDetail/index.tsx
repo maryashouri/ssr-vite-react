@@ -21,7 +21,14 @@ export const HotelDetailPage = () => {
     <Layout>
       <div className={styles.container}>
         <div className={styles.imageContainer}>
-          <img alt={data?.name} src={`/images/${data?.image}`} />
+          {!data?.image ? (
+            <img
+              alt={data?.name}
+              src={`https://placehold.co/800x200?text=Hotel`}
+            />
+          ) : (
+            <img alt={data.name} src={`/images/${data.image}`} />
+          )}
         </div>
         <h1>{data?.name}</h1>
         <p>
