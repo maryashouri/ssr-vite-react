@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
   },
 });
 
-axiosInstance.interceptors.response.use(
+axiosInstance?.interceptors?.response.use(
   (response) => response,
   (error) => {
     // You can centralize your error handling here (e.g., logging, custom error messages)

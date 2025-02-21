@@ -30,5 +30,5 @@ export const useInfiniteHotels = (initialLimit = 1) => {
     }
   }, [hasMore]);
 
-  return { hotels, isLoading, error, loadMoreHotels, hasMore, setHotels };
+  return { hotels, isLoading, error, loadMoreHotels, hasMore };
 };

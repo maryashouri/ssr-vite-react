@@ -175,7 +175,7 @@
       "comments": []
     },
     {
-      "id": 9,
+      "id": 11,
       "name": "Shayegan",
       "description": "An elegant hotel in the heart of Tehran with easy access to tourist attractions.",
       "location": { "lat": 35.7003, "long": 51.32 },
@@ -189,7 +189,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": 12,
       "name": "Testttt",
       "description": "A normal hotel.",
       "location": { "lat": 35.7003, "long": 51.414 },
