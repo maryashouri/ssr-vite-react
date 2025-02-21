@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+
+# Build output
+/dist
+/.vite
+/dist/client
+/dist/server
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
