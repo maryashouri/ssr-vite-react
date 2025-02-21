@@ -43,3 +43,9 @@ cd hotels
  ```bash
 npm install
 ```
+
+### 3. Run the development environment
+ ```bash
+npm run dev
+```
+
