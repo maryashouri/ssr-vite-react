@@ -1,25 +1,36 @@
 import Layout from "../../layout/index";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HotelMap } from "../../components/Map";
-import { HotelDataType } from "../../types";
+import type { HotelDataType } from "../../types";
 import HotelCard from "../../components/Card";
-import styles from "./hotelList.module.scss";
 import { useInfiniteHotels } from "../../hooks/useInfiniteHotels";
+import useDebounce from "../../hooks/useDebounce";
+
+import styles from "./hotelList.module.scss";
 
 export const HotelListPage = () => {
-  const { hotels, isLoading, error, loadMoreHotels, hasMore } =
-    useInfiniteHotels();
-
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 300);
+  const { hotels, isLoading, error, loadMoreHotels, hasMore } =
+    useInfiniteHotels(1);
+
+  const [filtered, setFiltered] = useState(hotels);
+
+  useEffect(() => {
+    const filteredHotels = debouncedSearch
+      ? hotels.filter(
+          (hotel: HotelDataType) =>
+            hotel.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+            hotel.description
+              .toLowerCase()
+              .includes(debouncedSearch.toLowerCase())
+        )
+      : hotels;
+    setFiltered(filteredHotels);
+  }, [hotels, debouncedSearch]);
 
   if (isLoading) return <p>Loading hotels...</p>;
   if (error) return <p>Failed to load hotels.</p>;
-
-  const filteredHotels = hotels?.filter(
-    (hotel: HotelDataType) =>
-      hotel.name.toLowerCase().includes(search.toLowerCase()) ||
-      hotel.description.toLowerCase().includes(search.toLowerCase())
-  );
 
   return (
     <Layout>
@@ -36,16 +47,15 @@ export const HotelListPage = () => {
           />
         </div>
       </div>
+
       <div className={styles.gridLayout}>
         <div className={styles.cardContainer}>
-          <ul>
-            {filteredHotels?.map((hotel: HotelDataType) => (
-              <HotelCard key={hotel.id} hotel={hotel} />
-            ))}
-          </ul>
+          {filtered.map((item, index) => (
+            <HotelCard hotel={item} key={index} />
+          ))}
         </div>
         <div className={styles.mapContainer}>
-          <HotelMap hotels={hotels} isLoading={isLoading} />
+          <HotelMap hotels={filtered} isLoading={isLoading} />
         </div>
       </div>
 

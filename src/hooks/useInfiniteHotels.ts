@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 import { fetchHotels } from "../api/hotelApi";
 import type { HotelDataType } from "../types";
 
-export const useInfiniteHotels = (initialPage = 1) => {
-  const [page, setPage] = useState(initialPage);
+export const useInfiniteHotels = (initialLimit = 1) => {
+  const [page, setPage] = useState(initialLimit);
   const [hasMore, setHasMore] = useState(true);
   const [hotels, setHotels] = useState<HotelDataType[]>([]);
 
@@ -15,12 +15,10 @@ export const useInfiniteHotels = (initialPage = 1) => {
       keepPreviousData: true,
     }
   );
-
   useEffect(() => {
     if (data) {
       setHotels((prevHotels) => [...prevHotels, ...data]);
     }
-
     if (data && data.length < 5) {
       setHasMore(false);
     }
@@ -32,5 +30,5 @@ export const useInfiniteHotels = (initialPage = 1) => {
     }
   }, [hasMore]);
 
-  return { hotels, isLoading, error, loadMoreHotels, hasMore };
+  return { hotels, isLoading, error, loadMoreHotels, hasMore, setHotels };
 };

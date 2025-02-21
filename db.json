@@ -92,7 +92,7 @@
     {
       "id": 6,
       "name": "Evin",
-      "description": "Tehran Evin Hotel, one of the most prestigious five-star hotels in the capital.",
+      "description": "Tehran Evin Hotel.",
       "location": { "lat": 35.68, "long": 51.374 },
       "stars": 5,
       "image": "Evin.webp",
@@ -135,7 +135,7 @@
     },
     {
       "id": 8,
-      "name": "Parsian Azadi2",
+      "name": "Morvarid",
       "description": "A top-class hotel with exceptional service and amenities.",
       "location": { "lat": 35.8016, "long": 51.391 },
       "stars": 5,
@@ -153,7 +153,7 @@
     },
     {
       "id": 9,
-      "name": "Ferdowsi International Grand Hotel",
+      "name": "Kosar  Grand Hotel",
       "description": "An elegant hotel in the heart of Tehran with easy access to tourist attractions.",
       "location": { "lat": 35.7003, "long": 51.414 },
       "stars": 4,
@@ -176,7 +176,7 @@
     },
     {
       "id": 9,
-      "name": "Ferdowsi  Grand Hotel",
+      "name": "Shayegan",
       "description": "An elegant hotel in the heart of Tehran with easy access to tourist attractions.",
       "location": { "lat": 35.7003, "long": 51.32 },
       "stars": 4,
