@@ -17,9 +17,14 @@ const queryClient = new QueryClient({
   },
 });
 
+declare const window: Window &
+  typeof globalThis & {
+    __REACT_QUERY_STATE__: any;
+  };
 // Get dehydrated state from the SSR response
 const dehydratedState = window.__REACT_QUERY_STATE__ || {};
 
+console.log("window.__REACT_QUERY_STATE__ :>> ", window.__REACT_QUERY_STATE__);
 if (!dehydratedState) {
   throw new Error("Dehydrated state is not available on the client-side.");
 }

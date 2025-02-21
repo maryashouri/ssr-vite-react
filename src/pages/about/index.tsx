@@ -1,7 +1,7 @@
 import { JSX } from "react";
-import Layout from "../../layout/MainLayout";
+import Layout from "../../layout";
 
-export const About = (): JSX.Element => {
+export const AboutPage = (): JSX.Element => {
   return (
     <Layout>
       <p>

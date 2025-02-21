@@ -1,11 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 
-export const fetchHotels = async () => {
-  const response = await fetch("http://localhost:5000/hotels");
-  if (!response.ok) {
-    throw new Error("Failed to fetch hotels");
+import { HotelDetail, HotelList } from "../types"; // Import types
+import axiosInstance from "../api/axiosInstance";
+
+export const fetchHotels = async (): Promise<HotelList> => {
+  try {
+    const response = await axiosInstance.get("/hotels");
+    return response.data;
+  } catch (error) {
+    throw new Error("Failed to fetch hotels: Unknown error");
   }
-  return response.json();
+};
+
+export const fetchHotelDetail = async (id: number): Promise<HotelDetail> => {
+  try {
+    const response = await axiosInstance.get(`/hotels/${id}`);
+    return response.data;
+  } catch (error) {
+    throw new Error("Failed to fetch hotel details: Unknown error");
+  }
 };
 
 export function useHotels() {

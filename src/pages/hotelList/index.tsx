@@ -1,10 +1,11 @@
-import Layout from "../../layout/MainLayout";
+import Layout from "../../layout/index";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { HotelMap } from "../../components/Map";
 import { fetchHotels } from "../../hooks/useHotels";
+import { HotelDataType } from "../../types";
 
-export const HotelList = () => {
+export const HotelListPage = () => {
   const {
     data: hotels,
     isLoading,
@@ -12,7 +13,6 @@ export const HotelList = () => {
   } = useQuery({
     queryKey: ["hotels"],
     queryFn: fetchHotels,
-    suspense: true, // Enable Suspense
   });
 
   const [search, setSearch] = useState("");
@@ -21,7 +21,7 @@ export const HotelList = () => {
   if (error) return <p>Failed to load hotels.</p>;
 
   const filteredHotels = hotels?.filter(
-    (hotel: any) =>
+    (hotel: HotelDataType) =>
       hotel.name.toLowerCase().includes(search.toLowerCase()) ||
       hotel.description.toLowerCase().includes(search.toLowerCase())
   );
@@ -35,14 +35,9 @@ export const HotelList = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <div
-        className="havij"
-        style={{ width: "550px", height: "600px", backgroundColor: "red" }}
-      >
-        <HotelMap />
-      </div>
+      <HotelMap />
       <ul>
-        {filteredHotels.map((hotel: any) => (
+        {filteredHotels?.map((hotel: HotelDataType) => (
           <li key={hotel.id}>
             <h3>{hotel.name}</h3>
             <p>{hotel.description}</p>

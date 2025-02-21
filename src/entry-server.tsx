@@ -7,7 +7,7 @@ import {
   dehydrate,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import { fetchHotels } from "./hooks/useHotels";
+import { fetchHotelDetail, fetchHotels } from "./hooks/useHotels";
 
 export async function render({ path }: { path: string }) {
   const queryClient = new QueryClient();
@@ -17,6 +17,17 @@ export async function render({ path }: { path: string }) {
     queryKey: ["hotels"],
     queryFn: fetchHotels,
   });
+
+  // Extract hotel ID from the URL
+  const hotelIdMatch = path.match(/\/hotel\/(\d+)/);
+  const hotelId = hotelIdMatch ? parseInt(hotelIdMatch[1], 10) : null;
+
+  if (hotelId) {
+    await queryClient.prefetchQuery({
+      queryKey: ["hotel", hotelId],
+      queryFn: () => fetchHotelDetail(hotelId),
+    });
+  }
 
   const dehydratedState = dehydrate(queryClient);
 
