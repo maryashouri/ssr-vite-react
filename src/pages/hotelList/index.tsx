@@ -55,16 +55,15 @@ export const HotelListPage = () => {
           ))}
         </div>
       </div>
-      <div className={styles.mapContainer}>
-        <HotelMap hotels={filtered} isLoading={isLoading} />
-      </div>
-
-      <div className={`${styles.moreButton} ${hasMore ? "visible" : ""}`}>
+      <div className={styles.moreButton}>
         {hasMore && (
           <button onClick={loadMoreHotels} className={styles.loadMoreButton}>
             Load More
           </button>
         )}
+      </div>
+      <div className={styles.mapContainer}>
+        <HotelMap hotels={filtered} isLoading={isLoading} />
       </div>
     </Layout>
   );
