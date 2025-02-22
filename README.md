@@ -21,13 +21,6 @@ This is a web application built using **React**, **Vite**, **Express**, **JSON S
 - Concurrently runs server and client during development.
 - **Jest** for unit and integration testing.
 
-## Features
-
-- Dynamic front-end using React and React Router.
-- Server-side rendering (SSR) with Vite.
-- Mock data using JSON Server.
-- Concurrently runs server and client during development.
-
 ## Getting Started
 
 Follow these steps to set up the project locally:
